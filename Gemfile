@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'bootstrap', '~> 4.5'
+gem 'haversine', '~> 0.3.2'
 
 group :production do
   # Heroku requires PostgreSQL
