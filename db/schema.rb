@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_175830) do
     t.integer "origin"
     t.integer "dest"
     t.datetime "date"
+    t.string "description"
     t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

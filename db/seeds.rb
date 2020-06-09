@@ -22,7 +22,7 @@ Airport.all.each do |origin|
       next if origin == destination
       duration = flight_time([origin[:latitude], origin[:longitude]], [destination[:latitude], destination[:longitude]])
       date = Time.now + rand(10000000)
-      Flight.create(origin: origin.id, dest: destination.id, date: date, duration: duration)
+      Flight.create(origin: origin.id, dest: destination.id, date: date, description: "#{origin.code} to #{destination.code}, #{date}", duration: duration)
     end
   end
 end

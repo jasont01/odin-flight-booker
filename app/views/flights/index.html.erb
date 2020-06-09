@@ -1,0 +1,11 @@
+<%= form_with(method: "get") do |f| %>
+  <%= label_tag(:origin, "FROM: ") %>
+  <%= select_tag(:origin, options_for_select(@airport_options)) %><br/>
+  <%= label_tag(:dest, "TO: ") %>
+  <%= select_tag(:dest, options_for_select(@airport_options)) %><br/>
+  <%= label_tag(:num_passengers, "NUMBER OF PASSENGERS: ") %>
+  <%= select_tag(:num_passengers, options_for_select(@num_passengers_options)) %><br/>
+  <%= label_tag(:date, "DATE: ") %>
+  <%= select_tag(:date, options_from_collection_for_select(@flight_dates, :id, :flight_date_formatted)) %><br/>
+  <%= submit_tag("Select") %>
+<% end %>
