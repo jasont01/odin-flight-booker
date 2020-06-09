@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
     if params[:origin].nil?
       @flights = Flight.all
     else
-      @flights = Flight.where("origin = ? AND dest = ? AND date LIKE ?", params[:origin], params[:dest], "#{params[:date]}%")
+      @results = Flight.where("origin = ? AND dest = ? AND date LIKE ?", params[:origin], params[:dest], "#{params[:date]}%")
     end
 
   end

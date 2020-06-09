@@ -10,10 +10,6 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<% if @flights.empty? %>
-  <p>No results found.</p>
-<% else %>
-  <% @flights.each do |flight| %>
-    <%= flight.description %><br/>
-  <% end %>
+<% if !params[:origin].nil? %>
+  <%= render 'results' %>
 <% end %>

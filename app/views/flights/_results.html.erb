@@ -1,0 +1,17 @@
+<% if @results.empty? %>
+
+  <p>No results found.</p>
+  
+<% else %>
+
+  <%= form_with url: :flights, method: :get, local: true do |f| %>
+
+    <% @results.each do |flight| %>
+      <%= f.label(:flight, flight.description) %>
+      <%= f.radio_button(:flight, flight.id) %><br/>
+    <% end %>
+
+    <%= f.submit "Book"%>
+  <% end %>
+
+<% end %>
