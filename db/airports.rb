@@ -2,7 +2,7 @@
 
 AIRPORTS = [
   { code: "FLL", 
-    name: "Fort lauderdale-Hollywood International Airpot",
+    name: "Fort Lauderdale-Hollywood International Airport",
     city: "Fort Lauderdale",
     state: "FL",
     coord: [26.072599,-80.152702] },
