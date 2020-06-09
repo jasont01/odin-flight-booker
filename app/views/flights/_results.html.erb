@@ -4,13 +4,13 @@
   
 <% else %>
 
-  <%= form_with url: :flights, method: :get, local: true do |f| %>
+  <%= form_with url: new_bookings_path, method: :get, local: true do |f| %>
 
     <% @results.each do |flight| %>
       <%= f.label(:flight, flight.description) %>
       <%= f.radio_button(:flight, flight.id) %><br/>
     <% end %>
-
+    <%= f.hidden_field(:tickets, params[:tickets]) %>
     <%= f.submit "Book"%>
   <% end %>
 
