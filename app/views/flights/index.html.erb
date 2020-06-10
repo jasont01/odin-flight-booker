@@ -4,12 +4,12 @@
   <%= f.label(:destination, "TO: ") %>
   <%= f.select(:destination, options_for_select(@airport_options, 10)) %><br/>
   <%= f.label(:departure_date, "DATE: ") %>
-  <%= f.select(:departure_date, options_from_collection_for_select(@flight_dates, :flight_date_formatted, :flight_date_formatted_dropdown), include_blank: true) %><br/>
-  <%= f.label(:tickets, "NUMBER OF PASSENGERS: ") %>
-  <%= f.select(:tickets, options_for_select(@num_tickets_options)) %><br/>
+  <%= f.select(:departure_date, options_for_select(@date_options), include_blank: true) %><br/>
+  <%= f.label(:passengers, "NUMBER OF PASSENGERS: ") %>
+  <%= f.select(:passengers, options_for_select((1..4).step(1))) %><br/>
   <%= f.submit "Search" %>
 <% end %>
 
-<% if !params[:origin].nil? %>
+<% if @results %>
   <%= render 'results' %>
 <% end %>

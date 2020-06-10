@@ -1,7 +1,7 @@
 <% if @results.empty? %>
 
   <p>No results found.</p>
-  
+
 <% else %>
 
   <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
@@ -10,7 +10,7 @@
       <%= f.label(:flight, flight.description) %>
       <%= f.radio_button(:flight, flight.id) %><br/>
     <% end %>
-    <%= f.hidden_field(:tickets, :value => params[:tickets]) %>
+    <%= f.hidden_field(:passengers, :value => params[:passengers]) %>
     <%= f.submit "Book Flight" %>
   <% end %>
 
