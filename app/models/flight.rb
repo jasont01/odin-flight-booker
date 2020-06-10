@@ -1,16 +1,16 @@
 class Flight < ApplicationRecord
-  belongs_to :from_airport, class_name: "Airport", primary_key: "code", foreign_key: "origin_id"
-  belongs_to :to_airport, class_name: "Airport", primary_key: "code", foreign_key: "destination_id"
+  belongs_to :origin, class_name: "Airport", primary_key: "code"
+  belongs_to :destination, class_name: "Airport", primary_key: "code"
   has_many :bookings
   has_many :passengers, through: :bookings
 
   def depature_time
-    format_time(date, from_airport.timezone)
+    format_time(departure_date, origin.timezone)
   end
 
   def arrival_time
-    # Arrival Time - add flight duration(in seconds) to depature time
-    format_time(date + (duration * 60), to_airport.timezone)
+    # Add flight duration(in seconds) to depature time
+    format_time(departure_date + (duration * 60), destination.timezone)
   end
   
   def flight_time
@@ -18,11 +18,11 @@ class Flight < ApplicationRecord
   end
 
   def flight_date_formatted
-    date.strftime("%Y-%m-%d")
+    departure_date.strftime("%Y-%m-%d")
   end
 
   def flight_date_formatted_dropdown
-    date.strftime("%m/%d/%Y")
+    departure_date.strftime("%m/%d/%Y")
   end
 
   private

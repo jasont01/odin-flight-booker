@@ -1,10 +1,10 @@
 <%= form_with url: :flights, method: :get, local: true do |f| %>
   <%= f.label(:origin, "FROM: ") %>
   <%= f.select(:origin, options_for_select(@airport_options)) %><br/>
-  <%= f.label(:dest, "TO: ") %>
-  <%= f.select(:dest, options_for_select(@airport_options, 10)) %><br/>
-  <%= f.label(:date, "DATE: ") %>
-  <%= f.select(:date, options_from_collection_for_select(@flight_dates, :flight_date_formatted, :flight_date_formatted_dropdown), include_blank: true) %><br/>
+  <%= f.label(:destination, "TO: ") %>
+  <%= f.select(:destination, options_for_select(@airport_options, 10)) %><br/>
+  <%= f.label(:departure_date, "DATE: ") %>
+  <%= f.select(:departure_date, options_from_collection_for_select(@flight_dates, :flight_date_formatted, :flight_date_formatted_dropdown), include_blank: true) %><br/>
   <%= f.label(:tickets, "NUMBER OF PASSENGERS: ") %>
   <%= f.select(:tickets, options_for_select(@num_tickets_options)) %><br/>
   <%= f.submit "Search" %>

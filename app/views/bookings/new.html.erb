@@ -1,19 +1,16 @@
 <%= render partial: 'flight_details' %>
 <hr>
 <%= form_with model: @booking, url: bookings_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field(:flight_id) %>
+  <%= f.hidden_field(:flight_id, value: @flight.id) %>
     <h2>Enter Passenger Details</h2>
-    <% i = 1 %>
     <%= f.fields_for :passengers do |p| %>
-      <h3>Passenger <%= i %></h3>
-      <%= p.label(:first_name, "First Name: ") %>
+      <h3>Passenger <%= p.options[:child_index] + 1 %></h3>
+      <%= p.label(:first_name) %>
       <%= p.text_field :first_name %><br/>
       <%= p.label(:last_name, "Last Name: ") %>
       <%= p.text_field :last_name %><br/>
       <%= p.label(:email, "Email: ") %>
       <%= p.text_field :email %><br/>
-      <%= p.hidden_field(:flight_id) %>
-      <% i += 1 %>
     <% end %>
   <%= f.submit "Confirm Booking" %>
 <% end %>
