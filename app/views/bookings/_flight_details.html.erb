@@ -1,0 +1,10 @@
+<h1>Flight Details</h1>
+<h3>Odin Airlines Flight <%= @booking.flight.flight_num %></h3>
+<p>Departing: <strong><%= @booking.flight.from_airport.name %> (<%= @booking.flight.from_airport.code %>)</strong></p>
+<p>Depature Time<sup><small>1</small></sup>: <strong><%= @booking.flight.depature_time %></strong></p>
+<p>Destination: <strong><%= @booking.flight.to_airport.name %> (<%= @booking.flight.to_airport.code %>)</strong></p>
+<p>Arrival Time<sup><small>1</small></sup>: <strong><%= @booking.flight.arrival_time %></strong></p>
+<p>Flight Time: <strong><%= @booking.flight.flight_time %></strong></p>
+
+<br/>
+<p><small>1. All times times local to their respective airports</small></p>

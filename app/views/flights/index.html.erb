@@ -4,7 +4,7 @@
   <%= f.label(:dest, "TO: ") %>
   <%= f.select(:dest, options_for_select(@airport_options, 10)) %><br/>
   <%= f.label(:date, "DATE: ") %>
-  <%= f.select(:date, options_from_collection_for_select(@flight_dates, :flight_date_formatted, :flight_date_formatted_user), include_blank: true) %><br/>
+  <%= f.select(:date, options_from_collection_for_select(@flight_dates, :flight_date_formatted, :flight_date_formatted_dropdown), include_blank: true) %><br/>
   <%= f.label(:tickets, "NUMBER OF PASSENGERS: ") %>
   <%= f.select(:tickets, options_for_select(@num_tickets_options)) %><br/>
   <%= f.submit "Search" %>
