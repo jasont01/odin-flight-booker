@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_06_09_210759) do
 
-  create_table "airports", force: :cascade do |t|
+  create_table "airports", id: false, force: :cascade do |t|
     t.string "code"
     t.string "name"
     t.string "city"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_210759) do
 
   create_table "flights", force: :cascade do |t|
     t.integer "flight_num"
-    t.integer "origin"
-    t.integer "dest"
+    t.string "origin"
+    t.string "dest"
     t.datetime "date"
     t.string "description"
     t.integer "duration"
