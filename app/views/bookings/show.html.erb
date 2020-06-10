@@ -1,0 +1,15 @@
+<h1>Flight <%= @booking.flight.flight_num %></h1>
+<p>Departing: <strong><%= @booking.flight.from_airport.name %> (<%= @booking.flight.from_airport.code %>)</strong></p>
+<!--<p>Depature Time: <strong><%= @booking.flight.date.in_time_zone(@booking.flight.from_airport.timezone) %></strong></p>-->
+<p>Depature Time<sup><small>1</small></sup>: <strong><%= @depature_time %></strong></p>
+<p>Destination: <strong><%= @booking.flight.to_airport.name %> (<%= @booking.flight.to_airport.code %>)</strong></p>
+<!--<p>Arrival Time: <strong><%= @arrival_time.in_time_zone(@booking.flight.to_airport.timezone) %></strong></p>-->
+<p>Arrival Time<sup><small>1</small></sup>: <strong><%= @arrival_time %></strong></p>
+<p>Flight Time: <strong><%= @flight_time %></strong></p>
+<h3>Passengers (<%= @booking.passengers.count %>)</h3>
+<% @booking.passengers.each do |passenger| %>
+  <p><%= passenger.last_name %>, <%= passenger.first_name %></p>
+<% end %>
+
+<br/>
+<p><small>1. All times times local to their respective airports</small></p>

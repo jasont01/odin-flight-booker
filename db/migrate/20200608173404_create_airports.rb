@@ -7,6 +7,7 @@ class CreateAirports < ActiveRecord::Migration[6.0]
       t.string :state
       t.decimal :latitude
       t.decimal :longitude
+      t.string :timezone
 
       t.timestamps
     end

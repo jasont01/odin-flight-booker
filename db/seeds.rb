@@ -12,7 +12,8 @@ AIRPORTS.each do |airport|
                 city: airport[:city],
                 state: airport[:state],
                 latitude: airport[:coord][0],
-                longitude: airport[:coord][1])
+                longitude: airport[:coord][1],
+                timezone: airport[:timezone])
 end
 
 # Seed Flights
@@ -22,7 +23,7 @@ Airport.all.each do |origin|
       next if origin == destination
       duration = flight_time([origin[:latitude], origin[:longitude]], [destination[:latitude], destination[:longitude]])
       date = Time.now + rand(10000000)
-      Flight.create(origin: origin.id, dest: destination.id, date: date, description: "#{origin.code} to #{destination.code}, #{date}", duration: duration)
+      Flight.create(flight_num: rand(1000..9999), origin: origin.id, dest: destination.id, date: date, description: "#{origin.code} to #{destination.code}, #{date}", duration: duration)
     end
   end
 end
