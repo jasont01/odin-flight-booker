@@ -1,3 +1,4 @@
+<h3>Search for Flight:</h3>
 <%= form_with url: :flights, method: :get, local: true do |f| %>
   <%= f.label(:origin, "FROM: ") %>
   <%= f.select(:origin, options_for_select(@airport_options, params[:origin])) %><br/>

@@ -10,7 +10,7 @@ class FlightsController < ApplicationController
 
   def search_flights
     if params[:origin] == params[:destination]
-      flash.now[:alert] = "Please choose different departure and arrival locations."
+      flash.now[:alert] = "Please choose different departure and arrival cities."
     else
       date = Date.parse(params[:departure_date]) if !params[:departure_date].empty?
       @results = Flight.where("origin_id = ? AND destination_id = ? AND departure_date LIKE ?", params[:origin], params[:destination], "#{date}%")

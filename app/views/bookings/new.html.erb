@@ -5,12 +5,9 @@
     <h2>Enter Passenger Details</h2>
     <%= f.fields_for :passengers do |p| %>
       <h3>Passenger <%= p.options[:child_index] + 1 %></h3>
-      <%= p.label(:first_name) %>
-      <%= p.text_field :first_name %><br/>
-      <%= p.label(:last_name) %>
-      <%= p.text_field :last_name %><br/>
-      <%= p.label(:email) %>
-      <%= p.text_field :email %><br/>
+      <%= p.text_field :first_name, placeholder: "First Name" %><br/>
+      <%= p.text_field :last_name, placeholder: "Last Name" %><br/>
+      <%= p.text_field :email, placeholder: "Email" %><br/>
     <% end %>
   <%= f.submit "Confirm Booking" %>
 <% end %>

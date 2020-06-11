@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'flights#index'
+  get 'static_pages/home'
+  root to: 'static_pages#home'
   resources :flights
   resources :bookings
 end

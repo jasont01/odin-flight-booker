@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OdinFlightBooker</title>
+    <title>Odin Flight Booker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://kit.fontawesome.com/22f61d7fe5.js", crossorigin: "anonymous" %>
   </head>
 
   <body>
-    <%= yield %>
-    <%= link_to "<< Home", root_path %><br/>
-    <small>1. All times times local to their respective airports</small><br/>
-    <small>Airport data provided by <a href="https://openflights.org/">OpenFlights.org</a></small>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-warning">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
+      <!-- Brand -->
+      
+      <span class="navbar-brand"><img src="https://www.theodinproject.com/assets/odin-logo-2d729f16279e9fc3b58ce847eacf07f883bdfc95eb23bb5064ed59d36ef551d6.svg" width="28">Odin Airlines</span>
+    </nav>
+
+    <div class="container mt-5">
+
+      <%= yield %>
+
+      <%= render partial: 'layouts/footer' %>
+
+    </div>
+
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
