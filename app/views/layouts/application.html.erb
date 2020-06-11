@@ -25,18 +25,24 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
       <!-- Brand -->
       
-      <span class="navbar-brand"><img src="https://www.theodinproject.com/assets/odin-logo-2d729f16279e9fc3b58ce847eacf07f883bdfc95eb23bb5064ed59d36ef551d6.svg" width="28">Odin Airlines</span>
+      <span class="navbar-brand">
+        <img src="https://www.theodinproject.com/assets/odin-logo-2d729f16279e9fc3b58ce847eacf07f883bdfc95eb23bb5064ed59d36ef551d6.svg" width="28">
+        <%= link_to "Odin Airlines", :root, class: "navbar-brand" %>
+      </span>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container mt-5 px-5 py-1 bg-light rounded">
 
       <%= yield %>
 
-      <%= render partial: 'layouts/footer' %>
-
     </div>
 
-    
+    <footer class="container py-5">
+
+      <%= render partial: 'layouts/footer' %>
+
+    </footer>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

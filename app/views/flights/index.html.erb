@@ -1,16 +1,36 @@
-<h3>Search for Flight:</h3>
-<%= form_with url: :flights, method: :get, local: true do |f| %>
-  <%= f.label(:origin, "FROM: ") %>
-  <%= f.select(:origin, options_for_select(@airport_options, params[:origin])) %><br/>
-  <%= f.label(:destination, "TO: ") %>
-  <%= f.select(:destination, options_for_select(@airport_options, params[:destination])) %><br/>
-  <%= f.label(:departure_date, "DATE: ") %>
-  <%= f.select(:departure_date, options_for_select(@date_options, params[:departure_date]), include_blank: true) %><br/>
-  <%= f.label(:passengers, "NUMBER OF PASSENGERS: ") %>
-  <%= f.select(:passengers, options_for_select((1..4).step(1))) %><br/>
-  <%= f.submit "Search" %>
-<% end %>
+<div class="row my-5">
+<div class="col">
+  <h3>Search for Flight:</h3>
+  <%= form_with url: :flights, method: :get, local: true do |f| %>
+    <div class="form-row">
+      <div class="col-3">
+        <%= f.label(:origin, "From: ") %>
+        <%= f.select(:origin, options_for_select(@airport_options, params[:origin]), class: "form-control") %>
+      </div>
+      <div class="col">
+        <%= f.label(:destination, "To: ") %>
+        <%= f.select(:destination, options_for_select(@airport_options, params[:destination]), class: "form-control") %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-3">
+        <%= f.label(:departure_date, "Date: ") %>
+        <%= f.select(:departure_date, options_for_select(@date_options, params[:departure_date]), class: "form-control", include_blank: true) %>
+      </div>
+      <div class="col">
+        <%= f.label(:passengers, "Passengers: ") %>
+        <%= f.select(:passengers, options_for_select((1..4).step(1)), class: "form-control") %>
+      </div>
+    </div>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
 
-<% if @results %>
-  <%= render 'results' %>
-<% end %>
+<div class="row my-5">
+<div class="col">
+  <% if @results %>
+    <%= render 'results' %>
+  <% end %>
+</div>
+</div>

@@ -1,7 +1,15 @@
-<%= render partial: 'flight_details' %>
-<h3>Passengers</h3>
-<% @booking.passengers.each_with_index do |passenger, i| %>
-  <p><%= i+1 %>. <%= passenger.last_name %>, <%= passenger.first_name %></p>
-  <p><%= passenger.email %></p>
-<% end %>
+<div class="row bg-light">
+  <div class="col">
+    <%= render partial: 'flight_details' %>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col">
+    <h3>Passengers</h3>
+    <% @booking.passengers.each_with_index do |passenger, i| %>
+      <p><%= i+1 %>. <%= passenger.last_name %>, <%= passenger.first_name %></p>
+      <p><%= passenger.email %></p>
+    <% end %>
+  </div>
+</div>

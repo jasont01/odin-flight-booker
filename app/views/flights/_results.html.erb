@@ -5,30 +5,31 @@
 <% else %>
 
   <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
-    <table>
-      <thead>
-        <th></th>
-        <th>Flight #</th>
-        <th>From</th>
-        <th></th>
-        <th>Departure</th>
-        <th></th>
-        <th>To</th>
-        <th></th>
-        <th>Arrival</th>
-        <th></th>
-        <th>Flight Time</th>
+    <table class="table table-striped table-hover table-responsive">
+      <caption>Search Results</caption>
+      <thead class="thead-light">
+        <th scope="col"></th>
+        <th scope="col">Flight #</th>
+        <th scope="col">Departing</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Arriving</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Flight Time</th>
       </thead>
       <tbody>
         <% @results.each do |flight| %>
           <tr>
-            <td><%= f.radio_button(:flight, flight.id) %></td>
+            <td scope="row"><%= f.radio_button(:flight, flight.id) %></td>
             <td><%= flight.flight_num %></td>
-            <td><%= flight.origin.city %> / </td>
+            <td><%= flight.origin.city %></td>
             <td><%= flight.origin.code %></td>
             <td><%= flight.departure_time %></td>
             <td><%= flight.departure_date.strftime("%d %b %Y") %></td>
-            <td><%= flight.destination.city %> / </td>
+            <td><%= flight.destination.city %></td>
             <td><%= flight.destination.code %></td>
             <td><%= flight.arrival_time %></td>
             <td><%= flight.arrival_date.strftime("%d %b %Y") %></td>
@@ -38,7 +39,7 @@
       </tbody>
     </table>
     <%= f.hidden_field(:passengers, :value => params[:passengers]) %>
-    <%= f.submit "Book Flight" %>
+    <%= f.submit "Book Flight", class: "btn btn-primary" %>
   <% end %>
 
 <% end %>
