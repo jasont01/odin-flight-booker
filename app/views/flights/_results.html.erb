@@ -18,11 +18,12 @@
         <th scope="col"></th>
         <th scope="col"></th>
         <th scope="col">Flight Time</th>
+        <th scope="col">Stops</th>
       </thead>
       <tbody>
         <% @results.each do |flight| %>
           <tr>
-            <td scope="row"><%= f.radio_button(:flight, flight.id) %></td>
+            <th scope="row"><%= f.radio_button(:flight, flight.id) %></td>
             <td><%= flight.flight_num %></td>
             <td><%= flight.origin.city %></td>
             <td><%= flight.origin.code %></td>
@@ -33,6 +34,11 @@
             <td><%= flight.arrival_time %></td>
             <td><%= flight.arrival_date.strftime("%d %b %Y") %></td>
             <td><%= flight.flight_time %></td>
+            <% if flight.stops == 0 %>
+              <td>Non-Stop</td>
+            <% else %>
+              <td><%= flight.stops %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

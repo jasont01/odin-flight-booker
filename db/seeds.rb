@@ -27,7 +27,8 @@ Airport.all.each do |origin|
                     destination_id: destination.id,
                     departure_date: date,
                     description: description,
-                    duration: duration)
+                    duration: duration,
+                    stops: rand(0..2))
     end
   end
 end

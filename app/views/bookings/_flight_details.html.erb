@@ -3,11 +3,23 @@
   <div class="card-body">
 
     <h3 class="card-title">Odin Airlines Flight <%= @booking.flight.flight_num %></h3>
-    <p class="card-text">Departing: <strong><%= @booking.flight.origin.name %> (<%= @booking.flight.origin.code %>)</strong>, <%= @booking.flight.origin.city %>, <%= @booking.flight.origin.country %></p>
-    <p class="card-text">Depature Time<sup><small>1</small></sup>: <strong><%= @booking.flight.departure_time %> <%= @booking.flight.departure_date.strftime("%d %b %Y") %></strong></p>
-    <p class="card-text">Destination: <strong><%= @booking.flight.destination.name %> (<%= @booking.flight.destination.code %>)</strong>, <%= @booking.flight.destination.city %>, <%= @booking.flight.destination.country %></p>
-    <p class="card-text">Arrival Time<sup><small>1</small></sup>: <strong><%= @booking.flight.arrival_time %> <%= @booking.flight.arrival_date.strftime("%d %b %Y") %></strong></p>
-    <p class="card-text">Flight Time: <strong><%= @booking.flight.flight_time %></strong></p>
+
+    <div class="row">
+      <div class="col-lg-2 col-sm-4 text-right">
+        <p class="card-text">Departing:</p>
+        <p class="card-text">Depature Time<sup><small>1</small></sup>:</p>
+        <p class="card-text">Destination:</p>
+        <p class="card-text">Arrival Time<sup><small>1</small></sup>:</p>
+        <p class="card-text">Flight Time:</p>
+      </div>
+      <div class="col">
+        <p class="card-text font-weight-bold"><%= @booking.flight.origin.name %> / <%= @booking.flight.origin.code %>, <%= @booking.flight.origin.city %>, <%= @booking.flight.origin.country %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.departure_time %> <%= @booking.flight.departure_date.strftime("%d %b %Y") %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.destination.name %> / <%= @booking.flight.destination.code %>, <%= @booking.flight.destination.city %>, <%= @booking.flight.destination.country %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.arrival_time %> <%= @booking.flight.arrival_date.strftime("%d %b %Y") %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.flight_time %></p>
+      </div>
+    </div>
   </div>
 </div>
 <small class="d-block text-muted">1. All times local to their respective airports</small>

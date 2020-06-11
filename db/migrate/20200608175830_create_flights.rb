@@ -7,6 +7,7 @@ class CreateFlights < ActiveRecord::Migration[6.0]
       t.datetime :departure_date
       t.string :description
       t.integer :duration
+      t.integer :stops
 
       t.timestamps
     end
