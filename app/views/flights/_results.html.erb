@@ -9,26 +9,30 @@
       <thead>
         <th></th>
         <th>Flight #</th>
-        <th>Date</th>
         <th>From</th>
         <th></th>
-        <th>Departure Time</th>
+        <th>Departure</th>
+        <th></th>
         <th>To</th>
         <th></th>
-        <th>Arrival Time</th>
+        <th>Arrival</th>
+        <th></th>
+        <th>Flight Time</th>
       </thead>
       <tbody>
         <% @results.each do |flight| %>
           <tr>
             <td><%= f.radio_button(:flight, flight.id) %></td>
             <td><%= flight.flight_num %></td>
-            <td><%= flight.departure_date.strftime("%d %b %Y") %></td>
-            <td><%= flight.origin.city %></td>
+            <td><%= flight.origin.city %> / </td>
             <td><%= flight.origin.code %></td>
             <td><%= flight.departure_time %></td>
-            <td><%= flight.destination.city %></td>
+            <td><%= flight.departure_date.strftime("%d %b %Y") %></td>
+            <td><%= flight.destination.city %> / </td>
             <td><%= flight.destination.code %></td>
             <td><%= flight.arrival_time %></td>
+            <td><%= flight.arrival_date.strftime("%d %b %Y") %></td>
+            <td><%= flight.flight_time %></td>
           </tr>
         <% end %>
       </tbody>

@@ -8,11 +8,15 @@ class Flight < ApplicationRecord
     format_time(departure_date, origin.timezone)
   end
 
-  def arrival_time
-    # Add flight duration(in seconds) to depature time
-    format_time(departure_date + (duration * 60), destination.timezone)
+  def arrival_date
+    # Add flight duration(in seconds)
+    departure_date + (duration * 60)
   end
-  
+
+  def arrival_time
+    format_time(arrival_date, destination.timezone)
+  end
+
   def flight_time
     "#{(duration - (duration % 60)) / 60} hrs #{duration % 60} mins"
   end
@@ -25,7 +29,8 @@ class Flight < ApplicationRecord
   private
 
   def format_time(time, timezone)
-    time.in_time_zone(timezone).strftime("%a, %d %b %Y %I:%M %p")
+    #time.in_time_zone(timezone).strftime("%a, %d %b %Y %I:%M %p")
+    time.in_time_zone(timezone).strftime("%I:%M %p")
   end
 
 end
