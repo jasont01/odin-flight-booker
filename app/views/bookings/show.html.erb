@@ -1,6 +1,7 @@
 <%= render partial: 'flight_details' %>
-<h3>Passengers (<%= @booking.passengers.count %>)</h3>
-<% @booking.passengers.each do |passenger| %>
-  <p><%= passenger.last_name %>, <%= passenger.first_name %></p>
+<h3>Passengers</h3>
+<% @booking.passengers.each_with_index do |passenger, i| %>
+  <p><%= i+1 %>. <%= passenger.last_name %>, <%= passenger.first_name %></p>
+  <p><%= passenger.email %></p>
 <% end %>
 

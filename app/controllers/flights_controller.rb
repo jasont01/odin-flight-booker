@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
 
   def index
 
-    @airport_options = Airport.all.map { |a| [ a.code, a.id ] }
+    @airport_options = Airport.all.order(:city).map { |a| [ a.city, a.id ] }
     @date_options = Flight.valid_dates
     
     search_flights if params[:commit]

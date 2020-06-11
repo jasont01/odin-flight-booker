@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_202338) do
     t.string "code"
     t.string "name"
     t.string "city"
-    t.string "state"
+    t.string "country"
     t.decimal "latitude"
     t.decimal "longitude"
     t.string "timezone"

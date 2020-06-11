@@ -5,11 +5,34 @@
 <% else %>
 
   <%= form_with url: new_booking_path, method: :get, local: true do |f| %>
-
-    <% @results.each do |flight| %>
-      <%= f.label(:flight, flight.description) %>
-      <%= f.radio_button(:flight, flight.id) %><br/>
-    <% end %>
+    <table>
+      <thead>
+        <th></th>
+        <th>Flight #</th>
+        <th>Date</th>
+        <th>From</th>
+        <th></th>
+        <th>Departure Time</th>
+        <th>To</th>
+        <th></th>
+        <th>Arrival Time</th>
+      </thead>
+      <tbody>
+        <% @results.each do |flight| %>
+          <tr>
+            <td><%= f.radio_button(:flight, flight.id) %></td>
+            <td><%= flight.flight_num %></td>
+            <td><%= flight.departure_date.strftime("%d %b %Y") %></td>
+            <td><%= flight.origin.city %></td>
+            <td><%= flight.origin.code %></td>
+            <td><%= flight.departure_time %></td>
+            <td><%= flight.destination.city %></td>
+            <td><%= flight.destination.code %></td>
+            <td><%= flight.arrival_time %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <%= f.hidden_field(:passengers, :value => params[:passengers]) %>
     <%= f.submit "Book Flight" %>
   <% end %>

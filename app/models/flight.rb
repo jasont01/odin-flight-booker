@@ -4,7 +4,7 @@ class Flight < ApplicationRecord
   has_many :bookings
   has_many :passengers, through: :bookings
 
-  def depature_time
+  def departure_time
     format_time(departure_date, origin.timezone)
   end
 
