@@ -1,36 +1,36 @@
-<div class="row my-5">
-<div class="col">
-  <h3>Search for Flight:</h3>
-  <%= form_with url: :flights, method: :get, local: true do |f| %>
-    <div class="form-row">
-      <div class="col-3">
+<div class="card">
+  <div class="card-body">
+
+    <h3 class="card-title">Find a Flight:</h3>
+    <%= form_with url: :flights, method: :get, local: true do |f| %>
+      <div class="form-group">
         <%= f.label(:origin, "From: ") %>
-        <%= f.select(:origin, options_for_select(@airport_options, params[:origin]), class: "form-control") %>
+        <%= f.select(:origin, options_for_select(@airport_options, params[:origin]), {}, { class: "form-control" }) %>
       </div>
-      <div class="col">
+      <div class="form-group">
         <%= f.label(:destination, "To: ") %>
-        <%= f.select(:destination, options_for_select(@airport_options, params[:destination]), class: "form-control") %>
+        <%= f.select(:destination, options_for_select(@airport_options, params[:destination]), {}, { class: "form-control" }) %>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="col-3">
-        <%= f.label(:departure_date, "Date: ") %>
-        <%= f.select(:departure_date, options_for_select(@date_options, params[:departure_date]), class: "form-control", include_blank: true) %>
-      </div>
-      <div class="col">
+      <div class="form-group">
         <%= f.label(:passengers, "Passengers: ") %>
-        <%= f.select(:passengers, options_for_select((1..4).step(1)), class: "form-control") %>
+        <%= f.select(:passengers, options_for_select((1..4).step(1)), {}, { class: "form-control" }) %>
       </div>
-    </div>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
+      <div class="form-group">
+        <%= f.label(:departure_date, "Date: ") %>
+        <%= f.select(:departure_date, options_for_select(@date_options, params[:departure_date]), { include_blank: "Choose a Date" }, { class: "form-control" }) %>
+        <small class="form-text text-muted">Leave blank for all scheduled flights.</small>
+      </div>
+      <%= f.submit "Search", class: "btn btn-primary mt-3" %>
+    <% end %>
+
+  </div>
 </div>
 
-<div class="row my-5">
-<div class="col">
-  <% if @results %>
-    <%= render 'results' %>
-  <% end %>
-</div>
-</div>
+<% if @results %>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Search Results</h5>
+        <%= render 'results' %>
+    </div>
+  </div>
+<% end %>

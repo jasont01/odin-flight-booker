@@ -1,13 +1,35 @@
-<%= render partial: 'flight_details' %>
-<hr>
-<%= form_with model: @booking, url: bookings_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field(:flight_id, value: @flight.id) %>
-    <h2>Enter Passenger Details</h2>
-    <%= f.fields_for :passengers do |p| %>
-      <h3>Passenger <%= p.options[:child_index] + 1 %></h3>
-      <%= p.text_field :first_name, placeholder: "First Name", class: "placeholder-shown" %><br/>
-      <%= p.text_field :last_name, placeholder: "Last Name" %><br/>
-      <%= p.text_field :email, placeholder: "Email" %><br/>
+<div class="card">
+  <div class="card-body">
+
+    <%= render partial: 'flight_details' %>
+
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body">
+
+    <%= form_with model: @booking, url: bookings_path, method: :post, local: true do |f| %>
+      <%= f.hidden_field(:flight_id, value: @flight.id) %>
+        <h2 class="card-title">Passenger Details</h2>
+        <%= f.fields_for :passengers do |p| %>
+        <hr>
+          <h4 class="card-title">Passenger <%= p.options[:child_index] + 1 %></h4>
+          <div class="form-group">
+            <%= p.label :first_name %>
+            <%= p.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= p.label :last_name %>
+            <%= p.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= p.label :email %>
+            <%= p.text_field :email, placeholder: "Email", class: "form-control" %>
+          </div>
+        <% end %>
+      <%= f.submit "Confirm Booking", class: "btn btn-success mt-3" %>
     <% end %>
-  <%= f.submit "Confirm Booking" %>
-<% end %>
+
+  </div>
+</div>
