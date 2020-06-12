@@ -23,4 +23,11 @@ This project focuses on building advanced forms in a Ruby on Rails app.<br />
 A link to the full description of the assignment can be found above.
 
 Airport data sourced from <a href="https://openflights.org/">OpenFlights.org</a>
-<!--Live version: <a href="#">heroku</a>-->
+
+<h4>Gems Used</h4>
+
+* <a href="https://rubygems.org/gems/bootstrap">Bootstrap</a> - CSS framwork
+* <a href="https://rubygems.org/gems/haversine">Haversine</a> - Calculates the distance between two locations using longitude and latitude.
+
+
+Live version: <a href="https://serene-ravine-48499.herokuapp.com/">heroku</a>
