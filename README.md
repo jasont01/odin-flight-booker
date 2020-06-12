@@ -30,4 +30,4 @@ Airport data sourced from <a href="https://openflights.org/">OpenFlights.org</a>
 * <a href="https://rubygems.org/gems/haversine">Haversine</a> - Calculates the distance between two locations using longitude and latitude.
 
 
-Live version: <a href="https://serene-ravine-48499.herokuapp.com/">heroku</a>
+Live version: <a href="https://odin-airlines.herokuapp.com/">heroku</a>
