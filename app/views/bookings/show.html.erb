@@ -30,12 +30,13 @@
             <td><%= passenger.last_name %></td>
             <td><%= passenger.first_name %></td>
             <td><%= passenger.email %></td>
-            <td><a href="#">View Ticket</a></td>
+            <td><%= link_to "View Ticket", passenger_path(passenger) %></td>
           </tr>
 
         <% end %>
 
       </tbody>
     </table>
+    <%= link_to "Book Another Flight", flights_path, class: "btn btn-primary mt-3" %>
   </div>
 </div>

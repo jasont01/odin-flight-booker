@@ -2,5 +2,5 @@
 body {
   background:url(background.jpg) no-repeat !important;
   background-size:cover;
-  background-color: darkgray !important;
+  background-color: rgba(67, 125, 163, 0.459) !important;
 }

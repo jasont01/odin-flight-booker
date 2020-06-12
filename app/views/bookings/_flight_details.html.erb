@@ -14,9 +14,9 @@
       </div>
       <div class="col">
         <p class="card-text font-weight-bold"><%= @booking.flight.origin.name %> / <%= @booking.flight.origin.code %>, <%= @booking.flight.origin.city %>, <%= @booking.flight.origin.country %></p>
-        <p class="card-text font-weight-bold"><%= @booking.flight.departure_time %> <%= @booking.flight.departure_date.strftime("%d %b %Y") %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.departure_date.strftime("%d %b %Y") %> <%= @booking.flight.departure_time %></p>
         <p class="card-text font-weight-bold"><%= @booking.flight.destination.name %> / <%= @booking.flight.destination.code %>, <%= @booking.flight.destination.city %>, <%= @booking.flight.destination.country %></p>
-        <p class="card-text font-weight-bold"><%= @booking.flight.arrival_time %> <%= @booking.flight.arrival_date.strftime("%d %b %Y") %></p>
+        <p class="card-text font-weight-bold"><%= @booking.flight.arrival_date.strftime("%d %b %Y") %> <%= @booking.flight.arrival_time %></p>
         <p class="card-text font-weight-bold"><%= @booking.flight.flight_time %></p>
       </div>
     </div>
