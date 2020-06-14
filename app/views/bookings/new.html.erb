@@ -12,6 +12,7 @@
     <%= form_with model: @booking, url: bookings_path, method: :post, local: true do |f| %>
       <%= f.hidden_field(:flight_id, value: @flight.id) %>
         <h2 class="card-title">Passenger Details</h2>
+        <p><mark>Leave fields blank to generate random infomation.</mark></p>
         <%= f.fields_for :passengers do |p| %>
         <hr>
           <h4 class="card-title">Passenger <%= p.options[:child_index] + 1 %></h4>

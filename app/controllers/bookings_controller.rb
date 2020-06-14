@@ -11,6 +11,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
+    @booking.passengers.each do |passenger|
+      passenger.first_name = Faker::Name.first_name if passenger.first_name.empty?
+      passenger.last_name = Faker::Name.last_name if passenger.last_name.empty?
+      passenger.email = Faker::Internet.email if passenger.email.empty?
+    end
+
     if @booking.save
       flash[:notice] = "Booking Confirmed"
       redirect_to @booking
