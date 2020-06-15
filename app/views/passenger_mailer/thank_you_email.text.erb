@@ -1,0 +1,14 @@
+<%= @passenger.first_name %>, you have successfully booked your flight to <%= @flight.destination.city %>
+===============================================
+
+Details
+
+Departure Date: <%= @flight.departure_date %>
+From: <%= @flight.origin.name %>
+
+Please arive at the airport at least 1 hour before your flight.
+
+To view your ticket, just follow this link: <%= @ticket_url %>
+
+Thank You for booking your flight with Odin-Airlines!
+

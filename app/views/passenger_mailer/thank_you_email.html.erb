@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @passenger.first_name %>, you have successfully booked your flight to <%= @flight.destination.city %></h1>
+    <h3>Details</h3>
+    <p>Departure Date: <%= @flight.departure_date %></p>
+    <p>From: <%= @flight.origin.name %></p>
+    <p>Please arive at the airport at least 1 hour before your flight.</p>
+    <p>To view your ticket, just follow this link: <%= @ticket_url %>.</p>
+    <h3>Thank You for booking your flight with Odin-Airlines!</h3>
+  </body>
+</html>
